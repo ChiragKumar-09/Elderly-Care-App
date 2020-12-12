@@ -43,7 +43,7 @@ var x = document.getElementById("demo");
            setInterval(function() {
             var watchId = navigator.geolocation.watchPosition(showPosition , showError);
             document.getElementById("button").click();
-           } , 50)  
+           } , 1000)  
         }
         
         function showPosition(position) {
