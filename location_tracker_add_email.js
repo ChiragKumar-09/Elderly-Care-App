@@ -27,3 +27,8 @@ function addemail() {
         alert("Please Fill Out This Field");
     }
 }
+
+
+function back() {
+    window.location = "location_tracker.html";
+}

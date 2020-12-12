@@ -22,14 +22,17 @@
     <script src="location_tracker.js"></script>
   </head>
   <body onload="getLocation()">
+    <center>
     <div id="map"></div>
 
     <h3 id="demo"></h3>
 
-    <button onclick="nav_addemail()">Add Email</button>    
-    <button onclick="sendlocation()">Send Location</button>
-    <button onclick="back()">Back</button>
+    <button style="background-color: green; color: white; border: 2px solid black; padding: 10px;" class="btn" onclick="nav_addemail()">Add Email</button><br><br>    
+    <button style="background-color: green; color: white; border: 2px solid black; padding: 10px;" class="btn" onclick="sendlocation()">Send Location</button><br><br>
+    <button style="background-color: green; color: white; border: 2px solid black; padding: 10px;" class="btn" onclick="back()">Back</button><br><br>
     <a id="link"></a>
     <button id="button" onclick="getLocation()" style="display: none;"></button>
+
+    </center>
   </body>
 </html>

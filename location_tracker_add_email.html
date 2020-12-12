@@ -11,7 +11,26 @@
 
 
   <body>
-      <input id="add_email" type="email" placeholder="Enter Email">
-      <button onclick="addemail()">Add Email</button>    
+    <center>
+      <input id="add_email" type="email" placeholder="Enter Email"><br><br><br>
+      <button class="btn" style="background-color: darkgoldenrod; color: white;  padding: 10px; font-size: 18px;" onclick="addemail()">Add Email</button>  <br><br><br> 
+      <button class="btn" style="background-color: darkgoldenrod; color: white;  padding: 10px; font-size: 18px;" onclick="back()">BACK</button>
+    </center> 
+
+    <style>
+      input {
+        color: darkred;
+        font-size: 20px;
+        width: 90%;
+      }
+      input::placeholder {
+        color: black;
+        font-size: 20px;
+      }
+      body {
+        background-color: lightpink;
+        margin-top: 300px;
+      }
+    </style>
   </body>
 </html>

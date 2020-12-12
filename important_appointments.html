@@ -26,7 +26,7 @@
         
         <div style="width: 70%;" class="column">
            <input id="whattodo" style="width: 80%;" type="text" placeholder="Enter what to do">
-           <input id="date" style="width: 80%;" type="date" placeholder="Select the date to do">
+           <input id="date" style="width: 80%;" type="date" placeholder="dd-mm-yyyy">
         </div>
         <div class="row">
           <button class="btn btn-warning" type="button" onclick="saveappointment()">SAVE</button>
@@ -36,6 +36,11 @@
       
 
       <script>
+
+        var year_array = [];
+        var month_array = [];
+        var din_array = [];
+        var appointments_array = [];
 
         var ID3 = 1;
 
@@ -72,6 +77,10 @@
                 var date = document.getElementById("date").value;
                 console.log(what_to_do);
                 console.log(date);
+                year = date.split("-")[0];
+                month = date.split("-")[1];
+                din = date.split("-")[2];
+                date = din+"-"+month+"-"+year;
                 document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removeapp(this.id)' id='appoint"+ ID3 +"'>" + what_to_do + "  on  " + date +"</label>";
                 localStorage.setItem("appoint"+ ID3 +"" , document.getElementById("appoint"+ ID3 +"").innerHTML);
                 ID3++;
