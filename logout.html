@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <title>
+            Logout
+        </title>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+
+        <!--Authentication Reference-->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+        
+    </head>
+ 
+    <body style="background-color: black; background-position: center; background-repeat: no-repeat; background-size: cover;" background="elderly_logout_background.jpg">
+      <center>
+        <br><br><br>
+        <h1 style="font-size: 30px !important; font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large; margin-top : 30px;" class="btn btn-danger">Welcome !</h1>
+        <br><br><br>
+        <button style="font-size: 22px; background-color: black; color: white;" type="button" onclick="homepage()">Go to Help Page</button>
+        <br><br><br>
+        <button style="font-size: 22px; background-color: black; color: white;" type="button" onclick="logout()">Log Out</button>
+      </center>
+      <style>
+        button:hover {
+           border-width: 4px;
+           border-color: red;
+        }
+        h1:hover {
+          cursor: default;
+        }
+      </style>
+
+      <script src = "logout.js"></script>
+    </body>
+</html>

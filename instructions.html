@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instructions</title>
+</head>
+<body style="background-color: lightcyan;">
+    <center>
+        
+        <h1>How To Use The App ?</h1>
+
+        <button id="view_btn" onclick="say()">View Instructions</button>
+
+        <labeL id="instruc1" style="display: none;">• If you are a new user then click on - Create Account after entering your Email Id, Password and Username</labeL><br><br>
+        <label id="instruc2" style="display: none;">• If you already have an account then click on LogIn</label><br><br>
+        <label id="instruc3" style="display: none;">• After you have logged in then click on - Go to Help Page button to start the app. Otherwise click on the Log Out button to exit the app.</label><br><br>
+        <label id="instruc4" style="display: none;">• On the Help Page select any item to view details</label><br><br>
+
+        <button style="display: none;" id="con_btn" onclick="continue1()" class="btn" type="button">Continue</button>
+    </center>
+
+    <style>
+        label {
+            text-align: center;
+            font-size: 25px;
+        }
+        button {
+            font-size: 23px;
+            background-color: lightyellow;
+            color: black;
+            border: 2px solid black;
+            padding: 10px;
+        }
+    </style>
+
+    <script>
+        function continue1() {
+            speechSynthesis.cancel();
+            window.location = "register.html";
+        }
+        function say() {
+            document.getElementById("view_btn").style.display = "none";
+            document.getElementById("instruc1").style.display = "block";
+            document.getElementById("instruc2").style.display = "block";
+            document.getElementById("instruc3").style.display = "block";
+            document.getElementById("instruc4").style.display = "block";
+            document.getElementById("con_btn").style.display = "block";
+            speechSynthesis.speak(new SpeechSynthesisUtterance("How To Use The App ? If you are a new user then click on - Create Account after entering your Email Id, Password and Username. If you already have an account then click on LogIn. After you have logged in then click on - Go to Help Page button to start the app. Otherwise click on the Log Out button to exit the app. On the Help Page select any item to view details."));
+        }
+        
+    </script>
+</body>
+</html>

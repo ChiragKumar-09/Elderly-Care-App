@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Location Tracker</title>
+
+    <script type="text/javascript"
+    src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB7wqM0fRBfWwx_Khtp1wEjcraS_C7ZO4c&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>          
+    <style>
+       /* Set the size of the div element that contains the map */
+       #map {          
+         height: 1000px;
+         /* The height is 400 pixels */
+         width: 100%;
+         /* The width is the width of the web page */
+       }
+      </style>
+    <script src="location_tracker.js"></script>
+  </head>
+  <body onload="getLocation()">
+    <div id="map"></div>
+
+    <h3 id="demo"></h3>
+
+    <button onclick="nav_addemail()">Add Email</button>    
+    <button onclick="sendlocation()">Send Location</button>
+    <button onclick="back()">Back</button>
+    <a id="link"></a>
+    <button id="button" onclick="getLocation()" style="display: none;"></button>
+  </body>
+</html>

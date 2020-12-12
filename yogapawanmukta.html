@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <title>
+            Pawanmuktasana
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+              
+    </head>
+ 
+    <body onload="onloaded()">
+      <center>
+        <label class="counter" style="font-size: 400px; opacity: 1;" id="counting_at_start">3</label>
+        <label class="counter" style="font-size: 400px; opacity: 1; display: none;" id="counting_at_start_2">2</label>
+        <label class="counter" style="font-size: 400px; opacity: 1; display: none;" id="counting_at_start_3">1</label>
+
+        <label style="font-size: medium; display: none;" id="about"> Lie flat on the back keeping the legs straight and together. Keep the arms by the sides with the palms down. Head, neck & spine should be in a straight line. Raise both the legs, bend the knees and bring the thighs close to the chest. To bring the thighs closer to the chest, interlock the fingers of both hands and hold the legs from just below the knees. Inhale deeply. Hold the position for 30 seconds or as per your comfort. Come back to base position and relax.</label>
+        <img id="image" style="display: none;" class="img-responsive" src="pawanmukta.png">
+        <label style="display: none; font-size: 30px;" id="count_label">30</label>
+
+        <div class="row" style="width: 90%;">
+          <div class="column" style="width: 100px; float: left; margin-left: 55px;">
+           <a class="btn" style="display: none;" href="yoga.html" onclick="stop()" id="back_a">Back</a>
+          </div>
+          <div class="column" style="width: 100px; float: right; margin-right: 55px;">
+           <button class="btn" style="display: none;" onclick="count()" id="ready">Ready</button>
+          </div>
+        </div>
+        
+        <button style="display: none;" onclick="start()" id="start">START</button>
+      </center>
+      
+      <script src="yoga2.js"></script> 
+
+      <style>
+        #about {
+          margin-left: 10px;
+          margin-right: 10px;
+          font-size: 18px;
+          margin-top: 40px;
+        }
+        .counter {
+          margin-top: 70px;
+        }
+        img {
+          margin-top: 50px;
+        }
+        #start {
+          margin-top: 50px;
+          width: 100px;
+        }
+        #back_a {
+          width: 100px;
+          margin-top: 20px;
+          background-color: coral !important;
+          color: rgb(37, 1, 1) !important;
+          margin-top: 20px;
+        }
+        #ready {
+          width: 100px;
+          margin-top: 20px;
+          background-color: coral;
+          color: rgb(37, 1, 1);
+          margin-top: 20px;
+        }
+        #count_label {
+          margin-top: 30px;
+        }
+        </style>
+    </body>
+</html>

@@ -1,0 +1,74 @@
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    margin-top: 40px;
+  }
+
+  #yesbutton1 {
+    background-color: green;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #yesbutton2 {
+    background-color: green;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #yesbutton3 {
+    background-color: green;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #yesbutton4 {
+    background-color: green;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #nobutton1 {
+    background-color: red;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #nobutton2 {
+    background-color: red;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #nobutton3 {
+    background-color: red;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #nobutton4 {
+    background-color: red;
+    color: white;
+    border-radius: 75px !important;
+  }
+
+  #backbtn {
+    background-color: #50E3C2;
+    color: black;
+    border-radius: 75px !important;
+    margin-top: 30px;
+  }
+
+  label {
+    color: #6F0F83;
+    background-color: #79FADD;
+  }

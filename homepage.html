@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <title>
+            Elderly Care App Help Page
+        </title>
+        <title>Baby Monitoring Web App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+        
+    </head>
+
+    <body background="homepageback.jpg" style="background-position: center; background-repeat: no-repeat; background-size: cover;">
+        <center>
+            <br>
+            <label>How Can I Help You ?</label><br><br>
+            <div class="row">
+                <button onclick="func_medicine()">Medicine Reminder</button>
+                <button onclick="func_bills()">Bills                                                                        ............</button>
+                <button onclick="func_food()">Food Order</button>
+            </div><br>
+
+            <div class="row2">
+                <button onclick="func_contacts()">Emergency Contacts</button>
+                <button onclick="func_health()">Health Tips</button>
+                <button onclick="func_yoga()">Yoga                                                       ............</button>
+            </div><br>
+
+            <div class="row3">
+                <button onclick="func_recreation()">Recreation                                                       .................</button>
+                <button onclick="func_location()">Location Tracker</button>
+                <button onclick="func_chat()">Chat with Friends</button>
+            </div><br>
+
+            <div class="row4">
+                <button onclick="func_appoint()">Important Appointments</button>
+            </div><br>
+                
+                <button onclick="func_logout()">Go to Log Out Page</button>
+        </center>
+        <style>
+            .row button {
+                background-color: lightgreen;
+                border: 1px solid green;
+                color: darkred;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                font-size: 19px;
+            }
+
+            .row2 button {
+                background-color: pink;
+                border: 1px solid darkviolet;
+                color: darkslategray;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                font-size: 18.5px;
+            }
+
+            .row3 button {
+                background-color: lightsalmon;
+                border: 1px solid salmon;
+                color: black;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                font-size: 19px;
+            }
+
+            .row4 button {
+                background-color: cadetblue;
+                border: 1px solid darkcyan;
+                color: white;
+                width:80%;
+                height: 100px;
+                text-align: center;
+                font-size: 20px;
+            }
+            button {
+                background-color: black;
+                color: white;
+                font-size: 20px;
+            }
+
+            label {
+                font-size: 30px;
+            }
+         </style>
+
+
+        <script>
+            function func_bills() {
+                window.location = "bills_screen.html";
+            }
+            function func_contacts() {
+                window.location = "emergency_contacts_screen.html";
+            }
+            function func_recreation() {
+                window.location = "recreation.html";
+            }
+            function func_health() {
+                window.location = "screen_health_tips.html";
+            }
+            function func_logout() {
+                window.location = "logout.html";
+            }
+            function func_food() {
+                window.location = "food_order.html";
+            }
+            function func_appoint() {
+                window.location = "important_appointments.html";
+            }
+            function func_medicine() {
+                window.location = "medicine_reminder1.html";
+            }
+            function func_yoga() {
+                window.location = "yoga.html";
+            }
+            function func_chat() {
+                window.location = "chat_with_friends_start.html";
+            }
+            function func_location() {
+                window.location = "location_tracker.html";
+            }
+        </script>
+    </body>
+</html>

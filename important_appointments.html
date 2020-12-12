@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <title>
+            Important Appointments
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+        
+    </head>
+      
+    <body onload="blink()">
+      <center>
+        <h1 id="head" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large; margin-top : 30px;" class="btn btn-success">Important Appointments</h1>
+        <p id = "ins1" onclick="pdeletefunc1()">*Click on the item to remove it</p>
+        <p id = "ins2" onclick="pdeletefunc2()">*Click on the instructions to remove them</p>
+
+        <div style="border: 2px solid  rgb(255, 2, 2); background-color: rgb(250, 215, 215); padding-top: 10px; padding-bottom: 10px;" id="listviewer">
+
+        </div>
+        
+        <div style="width: 70%;" class="column">
+           <input id="whattodo" style="width: 80%;" type="text" placeholder="Enter what to do">
+           <input id="date" style="width: 80%;" type="date" placeholder="Select the date to do">
+        </div>
+        <div class="row">
+          <button class="btn btn-warning" type="button" onclick="saveappointment()">SAVE</button>
+        </div>
+        <button class="btn btn-warning" type="button" onclick="back()">BACK</button>
+      </center>
+      
+
+      <script>
+
+        var ID3 = 1;
+
+        function back() {
+          window.location = "homepage.html"
+        }
+
+        function pdeletefunc1() {
+             document.getElementById("ins1").style.display = "none";
+        }
+        function pdeletefunc2() {
+             document.getElementById("ins2").style.display = "none";
+        }
+
+        function blink() {
+            
+          for (var i = 1; i < localStorage.length; i++){
+                if (localStorage.getItem("appoint"+i) == null) {
+                  i = i + 1;
+                } else {
+                  console.log(i);
+                  appointment = localStorage.getItem("appoint"+String(i));
+                  console.log(appointment);
+                  document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removeapp(this.id)' id='appoint"+ ID3 +"'>" + appointment + "</label>";
+                  ID3++;
+                }
+            }
+        }
+
+        function saveappointment() {
+          if (document.getElementById("whattodo").value != "") {
+            if (document.getElementById("date").value != "") {
+                var what_to_do = document.getElementById("whattodo").value;
+                var date = document.getElementById("date").value;
+                console.log(what_to_do);
+                console.log(date);
+                document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removeapp(this.id)' id='appoint"+ ID3 +"'>" + what_to_do + "  on  " + date +"</label>";
+                localStorage.setItem("appoint"+ ID3 +"" , document.getElementById("appoint"+ ID3 +"").innerHTML);
+                ID3++;
+                document.getElementById("whattodo").value= "";
+                document.getElementById("date").value= "";
+            } else {
+                window.alert("Please fill all the input fields !");
+            }
+          } else {
+               window.alert("Please fill all the input fields !");
+          }
+          
+        }
+
+        function removeapp(id) {
+            sure = confirm("You can't get back the appointment after deleting it !!");
+            if (sure == true) {
+              element = document.getElementById(id);
+              element.remove();
+              localStorage.setItem(id , "");
+            }
+          }
+
+      </script>
+
+<style>
+  p:hover {
+    cursor: default;
+  }
+
+  input {
+    margin-top: 10px;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  h1:hover {
+    cursor: default;
+  }
+
+  #ins1 {
+    margin-top: 10px;
+  }
+
+  #listviewer {
+    height: 50%;
+    overflow: scroll;
+    margin-top: 10px;
+    width: 95%;
+  }
+</style>
+    </body>
+</html>

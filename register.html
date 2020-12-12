@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <title>Register</title>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+           https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-analytics.js"></script>
+
+        <!--Authentication Reference-->
+        <script src="https://www.gstatic.com/firebasejs/8.0.2/firebase-auth.js"></script>
+
+        <script src = "register.js"></script>
+        <link rel = "stylesheet" href = "register.css">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+
+    </head>
+    <body background = "elderly register page background.jpg">
+        <center>
+            <br><br><br>
+           <input style="margin-top: 50px; width: 200px;" id="email" placeholder="Enter your Email Id"  type="email"> <br><br><br>
+           <input style="margin-top: 50px; width: 200px;" id="password" placeholder="Enter password" type="password"><br><br><br>
+           <input style="margin-top: 50px; width: 200px;" id="username" placeholder="Enter your UserName" type="text"><br><br><br>
+
+           <button style="margin-top: 50px; width: 150px;" type="button" onclick="SignUp()" class="btn btn-danger">CREATE ACCOUNT</button>
+           <button style="margin-top: 50px; margin-left: 30px; width: 140px" type="button" onclick="SignIn()" class="btn btn-success">LOG IN</button>
+        </center>
+
+        <style>
+            input::placeholder {
+               color: black;
+               font-weight: bold;
+               font-size: 18px;
+            }
+        </style>
+    </body>
+</html>

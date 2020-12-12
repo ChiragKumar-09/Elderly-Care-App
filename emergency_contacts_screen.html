@@ -1,0 +1,153 @@
+<html>
+    <head>
+        <title>
+            Emergency Contact Numbers
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+        
+    </head>
+      
+    <body onload="blink()">
+      <center>
+        <h1 id="head" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large; margin-top : 30px; background-color: burlywood !important; color: black !important;" class="btn">Important Contact Numbers</h1>
+        <p id = "ins1" onclick="pdeletefunc1()">*Click on the number to call the person</p>
+        <p id = "ins2" onclick="pdeletefunc2()">*Click on the remove button and select the number to delete it</p>
+        <p id = "ins3" onclick="pdeletefunc3()">*Dont't forget to add the country code before the number</p>
+        <p id = "ins4" onclick="pdeletefunc4()">*Click on the instructions to delete them</p>
+        
+        <div style="border: 2px solid darkorchid; background-color: rgb(248, 218, 247); padding: 10px;" id="listviewer">
+            
+        </div>
+        
+        <div style="width: 80%;" class="column">
+           <input id="number" style="width: 70%; border: 2px solid black;" type="text" placeholder="Enter Number">
+           <input id="name" style="width: 70%; border: 2px solid black;" type="text" placeholder="Enter Name">
+        </div>
+        <div class="row">
+          <button type="button" class="btn" style="border-radius: 75px; background-color: darkgreen; color: white; font-size: 16px; margin-top: 10px;" onclick="addnumbers()">Add Number</button>
+          <button type="button" class="btn" style="border-radius: 75px; background-color: darkgreen; color: white; font-size: 16px; margin-top: 12px;" onclick="removenumbers()">Remove Number</button>
+        </div>
+        <button type="button" class="btn" style="border-radius: 75px; background-color: darkslateblue; color: rgb(236, 233, 252); font-size: 16px; margin-top: 12px;" onclick="back()">BACK</button>
+      </center>
+      
+
+      <script>
+
+        remove = false;
+        var ID = 1;
+
+        function back() {
+          window.location = "homepage.html"
+        }
+
+        function pdeletefunc4() {
+             document.getElementById("ins4").style.display = "none";
+        }
+        function pdeletefunc1() {
+             document.getElementById("ins1").style.display = "none";
+        }
+        function pdeletefunc2() {
+             document.getElementById("ins2").style.display = "none";
+        }
+        function pdeletefunc3() {
+             document.getElementById("ins3").style.display = "none";
+        }
+
+        function blink() {
+            
+          for (var i = 1; i < localStorage.length; i++){
+                if (localStorage.getItem(i) == null) {
+                  i = i + 1;
+                } else {
+                  console.log(i);
+                  contact = localStorage.getItem(String(i));
+                  console.log(contact);
+                  document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removeorcall(this.id)' id='"+ ID +"'>" + contact + "</label>";
+                  ID++;
+                }
+          }
+        }
+
+        function addnumbers() {
+          if (document.getElementById("number").value != "") {
+            if (document.getElementById("name").value != "") {
+              var number = Number(document.getElementById("number").value);
+          var name = document.getElementById("name").value;
+          console.log(number);
+          console.log(name);
+          if (String(number) == "NaN") {
+            window.alert("The number should be an integer value....");
+            document.getElementById("number").value = "";
+          } else {
+            document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removeorcall(this.id)' id='"+ ID +"'>" + name + " : " + number + "</label>";
+            localStorage.setItem(""+ ID +"" , document.getElementById(""+ ID +"").innerHTML);
+            ID++;
+            document.getElementById("number").value= "";
+            document.getElementById("name").value= "";
+          }
+            } else {
+              window.alert("Please fill all the input fields !");
+            }
+          } else {
+            window.alert("Please fill all the input fields !");
+          }
+        }
+
+        function removenumbers() {
+          remove = true;
+        }
+
+        function removeorcall(id) {
+          if (remove == false) {
+            str = document.getElementById(id).innerHTML;
+            splited = str.split(": ")[1];
+            window.location = "tel:+"+ splited +"";
+          } else if (remove == true) {
+            sure = confirm("You can't get back the number after deleting it !!");
+            if (sure == true) {
+              element = document.getElementById(id);
+              element.remove();
+              localStorage.setItem(id , "");
+              remove = false;
+            }
+          }
+        }
+
+      </script>
+
+<style>
+  p:hover {
+    cursor: default;
+  }
+
+  input {
+    margin-top: 10px;
+  }
+
+  button {
+    margin-top: 10px;
+  }
+
+  h1:hover {
+    cursor: default;
+  }
+
+  #ins1 {
+    margin-top: 10px;
+  }
+
+  #listviewer {
+    height: 40%;
+    overflow: scroll;
+    margin-top: 10px;
+  }
+</style>
+    </body>
+</html>

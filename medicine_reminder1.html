@@ -1,0 +1,419 @@
+<html>
+    <head>
+        <title>
+            Medicine Reminder
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+        
+    </head>
+      
+    <body onload="blink()">
+      <center>
+        <h1 id="head" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: large; margin-top : 10px;" class="btn btn-danger">Medicine Reminder</h1>
+        <p id = "ins1" onclick="pdeletefunc1()">*Click on the item to view its details</p>
+        <p id = "ins4" onclick="pdeletefunc4()">*Click on the remove button and select the medicine to delete it</p>
+        <p id = "ins3" onclick="pdeletefunc3()">*Add at least one time when you have to take the medicine</p>
+        <p id = "ins2" onclick="pdeletefunc2()">*Click on the instructions to remove them</p>
+
+        <div style="border: 2px solid darkgreen; background-color: rgb(186, 250, 186); padding: 10px;" id="listviewer">
+
+        </div>
+        
+        <div style="width: 70%;" class="column">
+           <input list="medicines" id="med_name" style="width: 80%;" type="text" placeholder="Enter the name of the medicine">  
+           <datalist id="medicines">
+             <option>Acetaminophen</option>
+             <option>Amoxicillin and Clavulanate</option>
+             <option>Aspirin</option>
+             <option>Amlodipine</option>
+             <option>Atenolol</option>
+             <option>Atorvastatin</option>
+             <option>Alprazolam</option>
+             <option>Azithromycin</option>
+             <option>Baclofen</option>
+             <option>Benazepril</option>
+             <option>Bisacodyl</option>
+             <option>Bisoprolol</option>
+             <option>Budesonide and Formoterol</option>
+             <option>Buscopan</option>
+             <option>Calcium carbonate</option>
+             <option>Carbamazepine</option>
+             <option>Carbidopa and levodopa</option>
+             <option>Carvedilol</option>
+             <option>Cetirizine</option>
+             <option>Ciprofloxacin</option>
+             <option>Clonazepam</option>
+             <option>Clopidogrel</option>
+             <option>Cyanocobalamin</option>
+             <option>Dexamethasone</option>
+             <option>Diazepam</option>
+             <option>Diclofenac</option>
+             <option>Dicyclomine</option>
+             <option>Diltiazem</option>
+             <option>Divalproex sodium</option>
+             <option>Doxycycline</option>
+             <option>Erythromycin</option>
+             <option>Escitalopram</option>
+             <option>Esomeprazole</option>
+             <option>Famotidine</option>
+             <option>Fenofibrate</option>
+             <option>Fluconazole</option>
+             <option>Fluoxetine</option>
+             <option>Folic Acid</option>
+             <option>Furosemide</option>
+             <option>Gabapentin</option>
+             <option>Glimepiride</option>
+             <option>Glipizide</option>
+             <option>Glucosamine & Chondroitin with MSM</option>
+             <option>Griseofulvin</option>
+             <option>Hydroxychloroquine</option>
+             <option>Hydroxyzine</option>
+             <option>Hyoscyamine</option>
+             <option>Ibuprofen</option>
+             <option>Imipramine</option>
+             <option>Indomethacin</option>
+             <option>Insulin</option>
+             <option>Insulin glargine</option>
+             <option>Insulin regular</option>
+             <option>Isosorbide mononitrate</option>
+             <option>Itraconazole</option>
+             <option>Ketoconazole</option>
+             <option>Ketorolac</option>
+             <option>Lactulose</option>
+             <option>Lansoprazole</option>
+             <option>Levothyroxine</option>
+             <option>Loperamide</option>
+             <option>Lorazepam</option>
+             <option>Metformin</option>
+             <option>Methotrexate</option>
+             <option>Methylprednisolone</option>
+             <option>Metronidazole</option>
+             <option>Montelukast</option>
+             <option>Nifedipine</option>
+             <option>Nitrofurantoin</option>
+             <option>Nitroglycerin</option>
+             <option>Ofloxacin</option>
+             <option>Olanzapine</option>
+             <option>Olmesartan</option>
+             <option>Omeprazole</option>
+             <option>Ondansetron</option>
+             <option>Oxcarbazepine</option>
+             <option>Pantoprazole</option>
+             <option>Paracetamol</option>
+             <option>Paroxetine</option>
+             <option>Phenergan</option>
+             <option>Phenytoin</option>
+             <option>Pioglitazone</option>
+             <option>Prednisolone</option>
+             <option>Pregabalin</option>
+             <option>Propranolol</option>
+             <option>Quetiapine</option>
+             <option>Quinidine</option>
+             <option>Quinine</option>
+             <option>Rabeprazole</option>
+             <option>Ramipril</option>
+             <option>Ranitidine</option>
+             <option>Ranolazine</option>
+             <option>Repaglinide</option>
+             <option>Rifaximin</option>
+             <option>Ropinirole</option>
+             <option>Rosuvastatin</option>
+             <option>Salbutamol</option>
+             <option>Sertraline</option>
+             <option>Sitagliptin</option>
+             <option>Solifenacin</option>
+             <option>Sucralfate</option>
+             <option>Sulfasalazine</option>
+             <option>Sumatriptan</option>
+             <option>Tadalafil</option>
+             <option>Tamsulosin</option>
+             <option>Telmisartan</option>
+             <option>Terbinafine</option>
+             <option>Topiramate</option>
+             <option>Torsemide</option>
+             <option>Tramadol</option>
+             <option>Ubiquinone</option>
+             <option>Valproic acid</option>
+             <option>Venlafaxine</option>
+             <option>Vitamin A</option>
+             <option>Vitamin B 12</option>
+             <option>Vitamin C</option>
+             <option>Vitamin D3</option>
+             <option>Warfarin</option>
+             <option>Zinc</option>
+             <option>Zolpidem</option>
+             <option>Zonisamide</option>
+           </datalist>      
+           <input id="time" style="width: 80%;" type="time" placeholder="Select the date to do">
+           <input id="time2" style="width: 80%;" type="time" placeholder="Select the date to do (optional)">
+           <input id="time3" style="width: 80%;" type="time" placeholder="Select the date to do (optional)">
+        </div>
+        <div class="row">
+          <button type="button" class="btn" style="border-radius: 75px; background-color: rgb(54, 2, 2); color: white; font-size: 16px; margin-top: 12px; padding: 4px !important; width: 45%" onclick="savemedicine()">Add Medicine</button>
+          <button type="button" class="btn" style="border-radius: 75px; background-color: rgb(54, 2, 2); color: white; font-size: 16px; margin-top: 12px; padding: 4px !important; width: 45%" onclick="removemedicine()">Remove Medicine</button>
+        </div>
+        <div class="row">
+          <button type="button" class="btn" style="border-radius: 75px; background-color:darkgreen; color: white; font-size: 16px; margin-top: 10px; padding: 4px !important; width: 45%" data-toggle="modal" data-target="#myModal1">Order Medicine</button>
+      
+          <button type="button" class="btn" style="border-radius: 75px; background-color:darkgreen; color: white; font-size: 16px; margin-top: 10px; padding: 4px !important; width: 45%" onclick="back()">BACK</button>
+        </div>
+      
+        <button id="modalshow" style="display : none;" data-toggle = "modal" data-target = "#ModalAspirin"></button>
+    
+              <!--Code for making a popup-->
+
+    <div id="allmodals">
+
+    </div>
+
+
+
+    <div id="myModal1" class="modal fade ">
+      <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+               <!--Close Button-->
+                <button class="close" data-dismiss="modal">&times;</button>
+
+                <!--Heading Text for Popup-->
+                <h4>Click on the link to place order</h4>
+             </div>
+
+             <div class="modal-body">
+                <!--Modal PopUp Body Text-->
+                <a href="https://www.1mg.com" target="blank">www.1mg.com</a><br><br>
+                <a href="https://www.pharmeasy.in" target="blank">www.pharmeasy.in</a><br><br>
+                <a href="https://www.netmeds.com" target="blank">www.netmeds.com</a><br><br>
+                <a href="https://www.apollopharmacy.in" target="blank">www.apollopharmacy.in</a><br><br>
+                <a href="https://www.medlife.com" target="blank">www.medlife.com</a><br><br>
+                <a href="https://www.globalmedicalshop.com" target="blank">www.globalmedicalshop.com</a>
+             </div>
+         </div>
+      </div>
+  </div>
+      
+
+
+
+
+      </center>
+      <style>
+        p:hover {
+          cursor: default;
+        }
+
+        input {
+          margin-top: 10px;
+        }
+
+        button {
+          margin-top: 10px;
+        }
+
+        h1:hover {
+          cursor: default;
+        }
+
+        #ins1 {
+          margin-top: 10px;
+        }
+
+        #listviewer {
+          height: 30%;
+          overflow: scroll;
+          margin-top: 10px;
+        }
+      </style>
+
+      <script>
+
+        remove = false;
+        var ID4 = 1;
+
+        function pdeletefunc4() {
+             document.getElementById("ins4").style.display = "none";
+        }
+
+        function back() {
+          window.location = "homepage.html"
+        }
+
+        function removemedicine() {
+          remove = true;
+          console.log("Removing" + remove);
+        }
+
+        function pdeletefunc1() {
+             document.getElementById("ins1").style.display = "none";
+        }
+        function pdeletefunc2() {
+             document.getElementById("ins2").style.display = "none";
+        }
+        function pdeletefunc3() {
+             document.getElementById("ins3").style.display = "none";
+        }
+
+
+        function blink() {
+            
+          for (var i = 1; i < localStorage.length; i++){
+                if (localStorage.getItem("medicine"+i) == null) {
+                  console.log("This is null "+i);
+                  i = i+1;
+                }
+                else if (localStorage.getItem("medicine"+i) == "") {
+                 console.log("This is empty "+i);
+                } else {
+                  console.log(i);
+                  med = localStorage.getItem("medicine"+String(i));
+                  console.log(med);
+                  document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + med + "</label>";
+                  ID4++;
+                }
+            }
+        }
+
+        function savemedicine() {
+          if (document.getElementById("med_name").value != "") {
+                var medicine_name = document.getElementById("med_name").value;
+                var time = document.getElementById("time").value;
+                var time2 = document.getElementById("time2").value;
+                var time3 = document.getElementById("time3").value;
+                console.log(medicine_name);
+                console.log(time);
+                console.log(time2);
+                console.log(time3);
+
+                if (time == "" && time2 == "" && time3 == "") {
+                  window.alert("Please Enter at least one time to take the medicine");
+                } else {
+                  if (time != "" && time2 == "" && time3 == "") {
+                    document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + medicine_name + "  at  " + time +"</label>";
+                  } else if (time == "" && time2 != "" && time3 == "") {
+                    document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + medicine_name + "  at  " + time2 +"</label>";
+                  } else if (time == "" && time2 == "" && time3 != "") {
+                    document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + medicine_name + "  at  " + time3 +"</label>";
+                  } else if (time != "" && time2 != "" && time3 == "") {
+                    document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + medicine_name + "  at  " + time + " and "+ time2 +"</label>";
+                  } else if (time == "" && time2 != "" && time3 != "") {
+                    document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + medicine_name + "  at  " + time2 + " and "+ time3 +"</label>";
+                  } else if (time != "" && time2 == "" && time3 != "") {
+                    document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + medicine_name + "  at  " + time + " and "+ time3 +"</label>";
+                  } else if (time != "" && time2 != "" && time3 != "") {
+                    document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removemed(this.id)' id='medicine"+ ID4 +"'>" + medicine_name + "  at  " + time+ " and "+ time2+ " and "+ time3 +"</label>";
+                  }
+                  localStorage.setItem("medicine"+ ID4 +"" , document.getElementById("medicine"+ ID4 +"").innerHTML);
+                  ID4++;
+                  document.getElementById("med_name").value= "";
+                  document.getElementById("time").value= "";
+                  document.getElementById("time2").value= "";
+                  document.getElementById("time3").value= "";
+                }
+
+            } else {
+                window.alert("Please fill all the input fields !");
+            }
+        }
+
+        function removemed(id) {
+          if (remove == false) {
+
+            str = document.getElementById(id).innerHTML;
+            split_str = str.split("  at  ")[0];
+            console.log(split_str);
+
+            if (split_str.includes(" ")) {
+                  split_str = split_str.split(" ").join("");
+            }
+
+            if(! document.getElementById("Modal"+split_str+"")) {
+               console.log("Added !");
+               document.getElementById("allmodals").innerHTML += "<br>" + "<div id='Modal"+split_str+"' class='modal fade ''><div class='modal-dialog'><div class='modal-content'><div class='modal-header'><button class='close' data-dismiss='modal'>&times;</button><!--Heading Text for Popup--><h4>Medicine Details</h4></div><div class='modal-body'><input id='disease"+split_str+"' type='text' placeholder='Used for which disease'><br><br><label id='label"+split_str+"'>Enter the starting date - </label><input id='startdate"+split_str+"' type='date'><br><br><input id='duration"+split_str+"' type='number' placeholder='Enter duration in days'><br><br><button id='done"+split_str+"' type='button' onclick='printtext()' style='background-color : #fed8b1 !important; border : 2px solid black !important; color : black;' class='btn'>DONE</button><br><br><div style='width: 60%; border: 2px solid darkgreen; background-color: rgb(225, 248, 225); padding: 10px;' id='list_for_start_and_course"+split_str+"'></div></div></div></div></div>";
+            }
+
+            document.getElementById("modalshow").dataset.target = "#Modal"+split_str+""
+            console.log(document.getElementById("Modal"+split_str+"").id);
+
+            btn = document.getElementById("modalshow");
+            btn.click();
+
+            if(localStorage.getItem("removeelements"+split_str+"") == "Yes") {
+              document.getElementById("disease"+split_str+"").style.display = "none";
+              document.getElementById("startdate"+split_str+"").style.display = "none";
+              document.getElementById("duration"+split_str+"").style.display = "none";
+              document.getElementById("label"+split_str+"").style.display = "none";
+              document.getElementById("done"+split_str+"").style.display = "none";
+            }
+
+            if(localStorage.getItem("disease"+split_str+"") == null) {
+                 console.log("No Value");
+            } else if (localStorage.getItem("startdate"+split_str+"" ) == null) {
+                 console.log("No Value");
+            } else if (localStorage.getItem("duration"+split_str+"") == null) {
+                 console.log("No Value");
+            } else {
+                document.getElementById("list_for_start_and_course"+split_str+"").innerHTML = "";
+                document.getElementById("list_for_start_and_course"+split_str+"").innerHTML += "Disease : " + localStorage.getItem("disease"+split_str+"") + "<br><br>";
+                document.getElementById("list_for_start_and_course"+split_str+"").innerHTML += "Start Date : " + localStorage.getItem("startdate"+split_str+"") + "<br><br>";
+                document.getElementById("list_for_start_and_course"+split_str+"").innerHTML += "Duration : " + localStorage.getItem("duration"+split_str+"") + " Days " + "<br>";
+            }
+
+          } else if (remove == true) {
+            sure = confirm("You can't get back the medicine after deleting it !!");
+            if (sure == true) {
+              element = document.getElementById(id);
+              element.remove();
+              localStorage.setItem(id , "");
+              localStorage.removeItem("disease"+split_str+"");
+              localStorage.removeItem("startdate"+split_str+"");
+              localStorage.removeItem("duration"+split_str+"");
+              remove = false;
+            }
+          }
+        }
+
+        function done() {
+            document.getElementById("disease"+split_str+"").style.display = "none";
+            document.getElementById("startdate"+split_str+"").style.display = "none";
+            document.getElementById("duration"+split_str+"").style.display = "none";
+            document.getElementById("label"+split_str+"").style.display = "none";
+            document.getElementById("done"+split_str+"").style.display = "none";
+        }
+
+        function printtext() {
+
+          if (document.getElementById("disease"+split_str+"").value == "") {
+            alert("Please fill all the input fields !");
+          } else if (document.getElementById("startdate"+split_str+"").value == "") {
+            alert("Please fill all the input fields !");
+          } else if (document.getElementById("duration"+split_str+"").value == "") {
+            alert("Please fill all the input fields !");
+          } else {
+            input_value1 = document.getElementById("disease"+split_str+"").value;
+            input_value2 = document.getElementById("startdate"+split_str+"").value;
+            input_value3 = document.getElementById("duration"+split_str+"").value;
+            console.log(input_value1);
+            console.log(input_value2);
+            console.log(input_value3);
+            localStorage.setItem("disease"+split_str+"" , input_value1);
+            localStorage.setItem("startdate"+split_str+"" , input_value2);
+            localStorage.setItem("duration"+split_str+"" , input_value3);
+            localStorage.setItem("removeelements"+split_str+"" , "Yes");
+            document.getElementById("list_for_start_and_course"+split_str+"").innerHTML += "Disease : " + localStorage.getItem("disease"+split_str+"") + "<br><br>";
+            document.getElementById("list_for_start_and_course"+split_str+"").innerHTML += "Start Date : " + localStorage.getItem("startdate"+split_str+"") + "<br><br>";
+            document.getElementById("list_for_start_and_course"+split_str+"").innerHTML += "Duration : " + localStorage.getItem("duration"+split_str+"") + " Days " + "<br>";
+            done();
+          }
+
+        }
+
+      </script>
+    </body>
+</html>

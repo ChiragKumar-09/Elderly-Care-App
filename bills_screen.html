@@ -1,0 +1,136 @@
+<html>
+    <head>
+        <title>
+            Important Monthly Bills
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+        
+    </head>
+      
+    <body style="overflow: hidden;" onload="blink()">
+      <center>
+        <h1 id="head" style="font-family: 'Courier New', Courier, monospace; font-size: large; margin-top : 30px;" class="btn btn-primary">Important Monthly Bills</h1>
+        <p id = "ins1" onclick="pdeletefunc1()">*Click on the item to remove it</p>
+        <p id = "ins2" onclick="pdeletefunc2()">*Click on the instructions to remove them</p>
+
+        <div style="padding: 10px; overflow: scroll;" id="listviewer">
+            <label>Bill Name.....Due Date.....Amount(Rs.).....</label>
+        </div>
+        
+        <div style="width: 70%;" class="column">
+           <input id="billname" style="width: 80%;" type="text" placeholder="Enter Bill Name">
+           <input id="duedate" style="width: 80%;" type="date" placeholder="Select Due Date">
+           <input id="amount" style="width: 80%;" type="number" placeholder="Enter Amount">
+        </div>
+        <div class="row">
+          <button type="button" style="color: white; background-color: darkviolet; border-radius: 75px; border: 1px solid violet; padding: 2px; width: 100px;" onclick="savebill()">Save</button>
+        </div>
+        <button style="color: white; background-color: purple; border-radius: 75px; border: 1px solid purple; padding: 2px; width: 100px;" type="button" onclick="back()">BACK</button>
+      </center>
+      
+
+      <style>
+        h1:hover {
+          cursor: default;
+        }
+        p:hover {
+          cursor: default;
+        }
+        input {
+          margin-top: 10px;
+        }
+
+        button {
+          margin-top: 10px;
+        }
+        #ins1 {
+          margin-top: 10px;
+        }
+
+        #listviewer {
+          height: 46%;
+          overflow: scroll;
+          margin-top: 10px;
+          background: rgb(197, 229, 248);
+          border: 2px solid blue;
+        }
+      </style>
+
+
+      <script>
+
+        var ID2 = 1;
+
+        function back() {
+          window.location = "homepage.html"
+        }
+
+        function pdeletefunc1() {
+             document.getElementById("ins1").style.display = "none";
+        }
+        function pdeletefunc2() {
+             document.getElementById("ins2").style.display = "none";
+        }
+
+        function blink() {
+            
+          for (var i = 1; i < localStorage.length; i++){
+                if (localStorage.getItem("bill"+i) == null) {
+                  i = i + 1;
+                } else {
+                  console.log(i);
+                  contact = localStorage.getItem("bill"+String(i));
+                  console.log(contact);
+                  document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removebill(this.id)' id='bill"+ ID2 +"'>" + contact + "</label>";
+                  ID2++;
+                }
+          }
+        }
+
+        function savebill() {
+          if (document.getElementById("billname").value != "") {
+            if (document.getElementById("duedate").value != "") {
+              if (document.getElementById("amount").value != "") {
+                var bill_name = document.getElementById("billname").value;
+                var due_date = document.getElementById("duedate").value;
+                var amount_in_rs = document.getElementById("amount").value;
+                console.log(bill_name);
+                console.log(due_date);
+                console.log(amount_in_rs);
+                document.getElementById("listviewer").innerHTML += "<br>" + "<label onclick = 'removebill(this.id)' id='bill"+ ID2 +"'>" + bill_name + "  :  " + due_date + "  :  "+ amount_in_rs +"</label>";
+                localStorage.setItem("bill"+ ID2 +"" , document.getElementById("bill"+ ID2 +"").innerHTML);
+                ID2++;
+                document.getElementById("billname").value= "";
+                document.getElementById("amount").value= "";
+                document.getElementById("duedate").value= "";
+              } else {
+                window.alert("Please fill all the input fields !");
+              }
+            } else {
+                window.alert("Please fill all the input fields !");
+            }
+          } else {
+               window.alert("Please fill all the input fields !");
+          }
+          
+        }
+
+        function removebill(id) {
+            sure = confirm("You can't get back the bill after deleting it !!");
+            if (sure == true) {
+              element = document.getElementById(id);
+              element.remove();
+              localStorage.setItem(id , "");
+            }
+          }
+
+      </script>
+    </body>
+</html>

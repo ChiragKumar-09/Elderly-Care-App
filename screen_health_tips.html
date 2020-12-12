@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>
+           Health Tips
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+
+        <link rel="stylesheet" href = "screen_helathtips.css">
+              
+    </head>
+ 
+    <body onload="checkhides()" background="health_tips_background.jpg" style="overflow: hidden; background-size: cover; background-position: center; background-repeat: no-repeat;">
+      <div style = " margin-top: 10%;" class = "row">
+       <div id="ColumnDia" class = "column">
+           <center>
+           <label>Diabetes</label>
+        
+
+           <div class = "row">
+              <button class="btn" id="yesbutton1" onclick  = "addyes1()" style = "margin-right: 10px; margin-top: 10px;">Yes</button>
+              <button class="btn" id="nobutton1" onclick  = "addno1()" style="margin-top: 10px;">No</button>
+           </div>
+        </center>
+       </div>
+
+        <div id="ColumnHyp" class = "column">
+            <center>
+            <label>Hypertension</label>
+            
+
+            <div class = "row">
+                <button class="btn" id="yesbutton2" onclick  = "addyes2()" style = "margin-right: 10px; margin-top: 10px;">Yes</button>
+                <button class="btn" id="nobutton2" onclick  = "addno2()" style="margin-top: 10px;">No</button>
+             </div>
+          </center>
+        </div>
+      </div>
+
+       <div style="margin-top: 10%;" class = "row">
+        <div id="ColumnJoi" class = "column">
+            <center>
+            <label>Joint Pain</label>
+
+            <div class = "row">
+                <button class="btn" id="yesbutton3" onclick  = "addyes3()" style = "margin-right: 10px; margin-top: 10px;">Yes</button>
+                <button class="btn" id="nobutton3" onclick  = "addno3()" style="margin-top: 10px;">No</button>
+             </div>
+          </center>
+
+        </div>
+
+        <div id="ColumnBac" class = "column">
+            <center>
+            <label>Back Pain</label>
+            
+            <div class = "row">
+                <button class="btn" id="yesbutton4" onclick  = "addyes4()" style = "margin-right: 10px; margin-top: 10px;">Yes</button>
+                <button class="btn" id="nobutton4" onclick  = "addno4()" style="margin-top: 10px;">No</button>
+             </div>
+          </center>
+        </div>
+    </div>
+    <center>
+        <a class="btn" id="backbtn" href="homepage.html">BACK</a>
+    </center>
+
+      <script src="screen_health_tips.js"></script>
+
+      <style>
+        label {
+          font-size: 20px;
+        }
+        button {
+          font-size: 18px !important;
+        }
+        a {
+          font-size: 18px !important;
+        }
+      </style>
+    </body>
+</html>

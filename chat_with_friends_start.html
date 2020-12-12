@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>
+            Chat With Friends
+        </title>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.6.2/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/live/3.1/firebase.js"></script>
+
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/addons/p5.sound.min.js" integrity="sha512-wM+t5MzLiNHl2fwT5rWSXr2JMeymTtixiw2lWyVk1JK/jDM4RBSFoH4J8LjucwlDdY6Mu84Kj0gPXp7rLGaDyA==" crossorigin="anonymous"></script>
+        
+    </head>
+      
+    <body background="chat_start_back.jpg" style="background-position: center; background-repeat: no-repeat; background-size: cover;">
+        <style>
+            .loader {
+             border: 16px solid lightgreen; /* Light grey */
+             border-top: 16px solid black; /* Blue */
+             border-radius: 50%;
+             width: 80px;
+             height: 80px;
+             animation: spin 2s linear infinite;
+             top : auto;
+             left: auto;
+            }
+
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+        </style>
+
+      <center>
+        <button class="btn" id="buttondefault" style="background-color: #BD10E0; color: white; border-radius: 75px; margin-top: 350px; font-size: larger;" type="button" onclick="defaultroom()">Check out default room</button>
+        <br><br><br><br>
+        <button class="btn" id="buttonnewroom" style="background-color: #2962FF; color: white; border-radius: 75px; font-size: larger;" type="button" onclick="newroom()">Create own room</button>
+        <br><br><br><br>
+        <button class="btn" id="buttonback" style="background-color: #417505; color: white; border-radius: 75px; font-size: larger;" type="button" onclick="back()">BACK</button>
+        
+        <br><br><br><br>
+        <input id="roomname" style="display: none; width: 90%;" type="text" placeholder="Enter Roomname">
+        <br><br><br><br>
+        <div id="rowcanceldone" style="display: none;" class="row">
+            <button onclick="done()">Done</button>
+            <button onclick="cancel()">Cancel</button>
+        </div>
+        <div id="loading" style = "display: none;" class="loader"></div>
+      </center>
+      
+
+      <script src="chat_with_friends_start.js"></script>
+    </body>
+</html>
